@@ -1,0 +1,326 @@
+.hero {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(to right, #111, #1a1a1a);
+  color: #fff;
+  padding: 0 2rem;
+  position: relative;
+  overflow: hidden;
+
+  // Background Animation
+  .background-animation {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+
+    .circles {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: 
+        radial-gradient(circle at 20% 20%, rgba(0, 188, 212, 0.1) 0%, transparent 40%),
+        radial-gradient(circle at 80% 80%, rgba(0, 151, 167, 0.1) 0%, transparent 40%);
+      animation: pulsate 10s ease-in-out infinite;
+    }
+
+    .grid {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: linear-gradient(rgba(0, 188, 212, 0.05) 1px, transparent 1px),
+                        linear-gradient(90deg, rgba(0, 188, 212, 0.05) 1px, transparent 1px);
+      background-size: 50px 50px;
+      animation: gridMove 15s linear infinite;
+    }
+  }
+
+  // Particles
+  .particles {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+
+    .particle {
+      position: absolute;
+      background: rgba(0, 188, 212, 0.5);
+      border-radius: 50%;
+      pointer-events: none;
+
+      @for $i from 1 through 20 {
+        &:nth-child(#{$i}) {
+          $size: random(4) + px;
+          width: $size;
+          height: $size;
+          left: random(100) + 0%;
+          top: random(100) + 0%;
+          animation: float #{random(12) + 8}s linear infinite;
+          animation-delay: -#{random(12)}s;
+        }
+      }
+    }
+  }
+
+  // Content Styling
+  .hero-content {
+    text-align: center;
+    max-width: 1200px;
+    position: relative;
+    z-index: 3;
+
+    .text-content {
+      h1 {
+        font-size: 3.5rem;
+        margin-bottom: 1.5rem;
+        
+        .greeting {
+          display: block;
+          font-size: 1.8rem;
+          color: #00bcd4;
+          margin-bottom: 0.5rem;
+        }
+        
+        .name {
+          background: linear-gradient(45deg, #00bcd4, #0097a7);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          font-weight: 700;
+        }
+      }
+
+      .title {
+        font-size: 2rem;
+        color: #fff;
+        margin-bottom: 1.5rem;
+      }
+
+      .description {
+        font-size: 1.2rem;
+        color: #ccc;
+        margin-bottom: 2rem;
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .cta-buttons {
+        display: flex;
+        gap: 1rem;
+        justify-content: center;
+        margin-bottom: 2rem;
+
+        .btn {
+          padding: 0.75rem 2rem;
+          border-radius: 50px;
+          text-decoration: none;
+          transition: all 0.3s ease;
+          font-weight: 600;
+
+          &.primary {
+            background: #00bcd4;
+            color: white;
+            
+            &:hover {
+              background: #0097a7;
+              transform: translateY(-2px);
+              animation: pulse 2s infinite;
+            }
+          }
+
+          &.secondary {
+            border: 2px solid #00bcd4;
+            color: #00bcd4;
+            
+            &:hover {
+              background: #00bcd4;
+              color: white;
+              transform: translateY(-2px);
+            }
+          }
+        }
+      }
+
+      .social-links {
+        display: flex;
+        gap: 1.5rem;
+        justify-content: center;
+
+        a {
+          color: #ccc;
+          font-size: 1.5rem;
+          transition: all 0.3s ease;
+
+          &:hover {
+            color: #00bcd4;
+            transform: translateY(-2px);
+            animation: bounce 1s infinite;
+          }
+        }
+      }
+    }
+  }
+}
+
+// Animations
+@keyframes pulsate {
+  0%, 100% {
+    opacity: 0.3;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.5;
+    transform: scale(1.2);
+  }
+}
+
+@keyframes gridMove {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(50px);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translate(0, 0);
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: translate(random(100) - 50px, random(100) - 50px);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(0, 188, 212, 0.4);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(0, 188, 212, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(0, 188, 212, 0);
+  }
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+// Responsive Design
+@media (max-width: 768px) {
+  .hero {
+    .hero-content {
+      .text-content {
+        h1 {
+          font-size: 2.5rem;
+          
+          .greeting {
+            font-size: 1.5rem;
+          }
+        }
+
+        .title {
+          font-size: 1.5rem;
+        }
+
+        .description {
+          font-size: 1rem;
+        }
+
+        .cta-buttons {
+          flex-direction: column;
+          
+          .btn {
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+}
+// Add these new classes after your .hero { } block
+.floating-shapes {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 1;
+
+  .shape {
+    position: absolute;
+    background: rgba(0, 188, 212, 0.1);
+    border-radius: 50%;
+    animation: floatShape 20s linear infinite;
+
+    @for $i from 1 through 5 {
+      &:nth-child(#{$i}) {
+        width: #{random(100)}px;
+        height: #{random(100)}px;
+        left: #{random(100)}vw;
+        top: #{random(100)}vh;
+        animation-delay: -#{random(20)}s;
+        animation-duration: #{15 + random(15)}s;
+      }
+    }
+  }
+}
+
+// Add these new keyframes in your existing Animations section
+@keyframes textGlow {
+  0%, 100% {
+    text-shadow: 0 0 0px rgba(0, 188, 212, 0.5);
+  }
+  50% {
+    text-shadow: 0 0 15px rgba(0, 188, 212, 0.8);
+  }
+}
+
+@keyframes gradientFlow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes floatShape {
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  100% {
+    transform: translate(#{random(200) - 100}px, #{random(200) - 100}px) rotate(360deg);
+  }
+}
+
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: #00bcd4 }
+}

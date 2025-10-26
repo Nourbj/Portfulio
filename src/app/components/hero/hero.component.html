@@ -1,1 +1,42 @@
-<p>hero works!</p>
+<section id="hero" class="hero">
+  <!-- Animated Background Elements -->
+ <div class="floating-shapes">
+    <div class="shape" *ngFor="let i of [1,2,3,4,5]"></div>
+  </div>
+
+
+  <!-- Particles -->
+  <div class="particles">
+    <div class="particle" *ngFor="let i of [].constructor(20)"></div>
+  </div>
+
+  <div class="hero-content">
+    <div class="text-content">
+      <h1 class="animate__animated animate__fadeInDown">
+        <span class="greeting">Hi, I'm</span>
+        <span class="name">Nour Ben Jannena</span>
+      </h1>
+      <h2 class="title animate__animated animate__fadeInUp animate__delay-1s">
+        Full-Stack Web & Mobile Developer
+      </h2>
+      <p class="description animate__animated animate__fadeInUp animate__delay-1s">
+        I build exceptional digital experiences that make an impact
+      </p>
+      <div class="cta-buttons animate__animated animate__fadeInUp animate__delay-2s">
+        <a href="#projects" class="btn primary">View Projects</a>
+        <a href="#contact" class="btn secondary">Get in Touch</a>
+      </div>
+      <div class="social-links animate__animated animate__fadeInUp animate__delay-2s">
+        <a href="https://github.com/Nourbj" target="_blank" aria-label="GitHub">
+          <i class="fab fa-github"></i>
+        </a>
+        <a href="https://www.linkedin.com/in/nour-ben-jannena-537295249/" target="_blank" aria-label="LinkedIn">
+          <i class="fab fa-linkedin"></i>
+        </a>
+        <a href="mailto:nbenjannena@gmail.com" aria-label="Email">
+          <i class="fas fa-envelope"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
