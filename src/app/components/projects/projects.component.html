@@ -1,0 +1,49 @@
+<section id="projects" class="projects">
+  <div class="background-animation">
+    <div class="circles"></div>
+    <div class="grid"></div>
+  </div>
+
+  <div class="container">
+    <h2>My Projects</h2>
+    <p class="subtitle">
+      A selection of my favorite projects that showcase my skills and passion for web & mobile development.
+    </p>
+
+    <div class="projects-grid">
+      <div class="project-card" *ngFor="let project of projects">
+        <div class="card-content">
+          <h3>{{ project.title }}</h3>
+          <p>{{ project.description }}</p>
+
+          <ul class="tech-list">
+            <li *ngFor="let t of project.tech">{{ t }}</li>
+          </ul>
+
+          <div class="card-links">
+            <!-- GitHub link -->
+            <a
+              *ngIf="project.github"
+              [href]="project.github"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="GitHub"
+            >
+              <i class="fab fa-github"></i>
+            </a>
+
+            <a
+              *ngIf="project.liveDemo"
+              [href]="project.liveDemo"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Live Demo"
+            >
+              <i class="fas fa-external-link-alt"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

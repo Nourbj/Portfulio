@@ -1,0 +1,187 @@
+.projects {
+  padding: 6rem 1rem;
+  background: linear-gradient(to right, #111, #1a1a1a);
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+
+  // Background Animation
+  .background-animation {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none; /* <== permet de cliquer sur les liens au-dessus */
+
+    .circles {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 25% 25%, rgba(0, 188, 212, 0.05) 0%, transparent 40%),
+        radial-gradient(circle at 75% 75%, rgba(0, 151, 167, 0.05) 0%, transparent 40%);
+      animation: pulsate 10s ease-in-out infinite;
+    }
+
+    .grid {
+      position: absolute;
+      inset: 0;
+      background-image: 
+        linear-gradient(rgba(0, 188, 212, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 188, 212, 0.03) 1px, transparent 1px);
+      background-size: 50px 50px;
+      animation: gridMove 15s linear infinite;
+    }
+  }
+
+  .container {
+    position: relative;
+    z-index: 2;
+    max-width: 1200px;
+    margin: 0 auto;
+
+    h2 {
+      font-size: 2.5rem;
+      margin-bottom: 1.5rem;
+      color: #00bcd4;
+      position: relative;
+      display: inline-block;
+
+      &::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: -5px;
+        width: 60px;
+        height: 3px;
+        background: #00bcd4;
+        animation: widthPulse 2s ease-in-out infinite;
+      }
+    }
+
+    .subtitle {
+      font-size: 1.2rem;
+      opacity: 0.8;
+      margin-bottom: 3rem;
+      color: #ccc;
+      animation: fadeIn 1s ease forwards;
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 2rem;
+      justify-items: center;
+      animation: fadeInUp 1s ease 0.4s forwards;
+    }
+
+    .project-card {
+      background: rgba(30, 41, 59, 0.9);
+      border: 1px solid rgba(0, 188, 212, 0.15);
+      border-radius: 16px;
+      padding: 2rem;
+      max-width: 380px;
+      text-align: left;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+
+      &::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        border-radius: 16px;
+        border: 2px solid rgba(0, 188, 212, 0.15);
+        animation: borderPulse 2s ease-in-out infinite;
+        pointer-events: none; /* <== permet de cliquer sur les liens */
+      }
+
+      &:hover {
+        transform: translateY(-8px) scale(1.02);
+        box-shadow: 0 10px 25px rgba(0, 188, 212, 0.2);
+      }
+
+      h3 {
+        font-size: 1.4rem;
+        color: #00bcd4;
+        margin-bottom: 0.8rem;
+      }
+
+      p {
+        font-size: 1rem;
+        opacity: 0.85;
+        line-height: 1.6;
+        color: #ddd;
+        margin-bottom: 1rem;
+      }
+
+      .tech-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-bottom: 1.2rem;
+        padding: 0;
+        list-style: none;
+
+        li {
+          background: #263341;
+          color: #e0f7fa;
+          padding: 6px 12px;
+          border-radius: 20px;
+          font-size: 0.85rem;
+          transition: all 0.3s ease;
+
+          &:hover {
+            background: #00bcd4;
+            color: #fff;
+          }
+        }
+      }
+
+      .card-links {
+        display: flex;
+        gap: 15px;
+
+        a {
+          color: #00bcd4;
+          font-size: 1.3rem;
+          transition: all 0.3s ease;
+          pointer-events: auto; /* <== liens cliquables */
+
+          &:hover {
+            color: #0097a7;
+            transform: translateY(-3px);
+          }
+        }
+      }
+    }
+  }
+}
+
+/* Animations */
+@keyframes pulsate {0%,100%{opacity:0.3;transform:scale(1);}50%{opacity:0.6;transform:scale(1.2);}}
+@keyframes gridMove {0%{transform:translateY(0);}100%{transform:translateY(50px);}}
+@keyframes borderPulse {0%,100%{opacity:0.3;transform:scale(1);}50%{opacity:0.6;transform:scale(1.05);}}
+@keyframes fadeIn {from{opacity:0;}to{opacity:1;}}
+@keyframes fadeInUp {from{opacity:0;transform:translateY(25px);}to{opacity:1;transform:translateY(0);}}
+@keyframes widthPulse {0%,100%{width:60px;}50%{width:80px;}}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .projects {
+    text-align: center;
+
+    .projects-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .project-card {
+      max-width: 100%;
+    }
+
+    h2::after {
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  }
+}
