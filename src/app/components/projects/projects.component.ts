@@ -8,24 +8,26 @@ import { Component } from '@angular/core';
 export class ProjectsComponent {
   projects = [
     {
-      title: 'Optimization and decoupling of client accounts',
-      description:
-        'Optimization and decoupling of client accounts from Magento to a frontend interface in Next.js, with secure authentication via AWS Identity Services. Architecture based on GraphQL and API Gateway.',
-      tech: ['Next.js', 'Magento', 'AWS', 'GraphQL', 'API Gateway'],
-    },
-    {
-      title: 'Employee Management System',
-      description:
-        'A cross-platform mobile app (iOS & Android) and web dashboard for managing employees, absences, and check requests, built with .NET MAUI and ASP.NET Core.',
-      tech: ['.NET MAUI', 'ASP.NET Core', 'SQL Server'],
-    },
-     {
-      title: 'Call Center ERP Development',
-      description:
-    'Development of a web-based ERP application for a call center, including account management, campaign management, and authentication.',
-  tech: ['Next.js', 'Django', 'PostgreSQL'],
-    },
-
+    title: 'Optimization and decoupling of client accounts',
+    logo: 'assets/images/decade.png',
+    description:
+      'Optimization and decoupling of client accounts from Magento to a frontend interface in Next.js, with secure authentication via AWS Identity Services. Architecture based on GraphQL and API Gateway.',
+    tech: ['Next.js', 'Magento', 'AWS', 'GraphQL', 'API Gateway'],
+  },
+  {
+    title: 'Employee Management System',
+    logo: 'assets/images/riseup.png', 
+    description:
+      'A cross-platform mobile app (iOS & Android) and web dashboard for managing employees, absences, and check requests, built with .NET MAUI and ASP.NET Core.',
+    tech: ['.NET MAUI', 'ASP.NET Core', 'SQL Server'],
+  },
+  {
+    title: 'Call Center ERP Development',
+    logo: 'assets/images/maher.png',
+    description:
+      'Development of a web-based ERP application for a call center, including account management, campaign management, and authentication.',
+    tech: ['Next.js', 'Django', 'PostgreSQL'],
+  },
     {
       title: 'Library Management App',
       description:

@@ -16,6 +16,8 @@ export class SkillsComponent {
     { name: 'Java', level: 'Advanced' },
     { name: 'C#', level: 'Intermediate' },
     { name: 'Python', level: 'Advanced' },
+    { name: '.NET MAUI', level: 'Intermediate' },
+    { name: 'AWS', level: 'Advanced' }
  
   ];
   softSkills = [
