@@ -101,6 +101,48 @@
         box-shadow: 0 10px 25px rgba(0, 188, 212, 0.2);
       }
 
+      .project-screenshots {
+        margin: -2rem -2rem 1.5rem -2rem;
+        position: relative;
+        cursor: pointer;
+        overflow: hidden;
+
+        .overlay {
+          position: absolute;
+          inset: 0;
+          background: rgba(0, 188, 212, 0.4);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          opacity: 0;
+          transition: opacity 0.3s ease;
+          border-top-left-radius: 15px;
+          border-top-right-radius: 15px;
+          z-index: 1;
+
+          i {
+            color: #fff;
+            font-size: 2rem;
+            transform: scale(0.5);
+            transition: transform 0.3s ease;
+          }
+        }
+
+        &:hover .overlay {
+          opacity: 1;
+          i { transform: scale(1); }
+        }
+
+        img {
+          width: 100%;
+          height: auto;
+          display: block;
+          border-top-left-radius: 15px;
+          border-top-right-radius: 15px;
+          object-fit: cover;
+        }
+      }
+
       /* ✅ Logo + titre */
       .project-title {
         display: flex;
@@ -210,6 +252,59 @@
 @keyframes widthPulse {
   0%, 100% { width: 60px; }
   50% { width: 80px; }
+}
+
+.image-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.85);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  animation: fadeIn 0.3s ease;
+
+  .modal-content {
+    position: relative;
+    max-width: 90vw;
+    max-height: 90vh;
+    animation: zoomIn 0.3s ease;
+
+    img {
+      max-width: 100%;
+      max-height: 90vh;
+      border-radius: 8px;
+      object-fit: contain;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    }
+
+    .close-btn {
+      position: absolute;
+      top: -40px;
+      right: -10px;
+      background: none;
+      border: none;
+      color: #fff;
+      font-size: 2.5rem;
+      cursor: pointer;
+      transition: color 0.3s;
+      
+      &:hover {
+        color: #00bcd4;
+      }
+
+      @media (min-width: 768px) {
+        top: -40px;
+        right: -40px;
+      }
+    }
+  }
+}
+
+@keyframes zoomIn {
+  from { transform: scale(0.95); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
 }
 
 /* --- Responsive --- */

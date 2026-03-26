@@ -12,6 +12,10 @@
 
     <div class="projects-grid">
       <div class="project-card" *ngFor="let project of projects">
+        <div class="project-screenshots" *ngIf="project.screenshots" (click)="openImage(project.screenshots)">
+          <div class="overlay"><i class="fas fa-expand"></i></div>
+          <img [src]="project.screenshots" [alt]="project.title + ' screenshots'" />
+        </div>
         <div class="card-content">
           <h3 class="project-title">
             <img
@@ -52,6 +56,14 @@
           </div>
         </div>
       </div>
+    </div>
+  </div>
+
+  <!-- Image Modal -->
+  <div class="image-modal" *ngIf="selectedImage" (click)="closeImage()">
+    <div class="modal-content" (click)="$event.stopPropagation()">
+      <button class="close-btn" (click)="closeImage()" aria-label="Close modal">&times;</button>
+      <img [src]="selectedImage" alt="Enlarged screenshot" />
     </div>
   </div>
 </section>

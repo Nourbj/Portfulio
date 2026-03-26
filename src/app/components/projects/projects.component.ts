@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./projects.component.scss']
 })
 export class ProjectsComponent {
-  projects = [
+  projects: any[] = [
     {
     title: 'Optimization and decoupling of client accounts',
     logo: 'assets/images/decade.png',
@@ -16,6 +16,7 @@ export class ProjectsComponent {
   },
   {
     title: 'Employee Management System',
+    screenshots: 'assets/images/employee.png',
     logo: 'assets/images/riseup.png', 
     description:
       'A cross-platform mobile app (iOS & Android) and web dashboard for managing employees, absences, and check requests, built with .NET MAUI and ASP.NET Core.',
@@ -45,6 +46,7 @@ export class ProjectsComponent {
     },
     {
       title: 'Small Business Mobile App',
+      screenshots: 'assets/images/bezbez.png',
       description:
         'A cross-platform app for managing sales, clients, and products, designed for small businesses.',
       tech: ['Ionic', 'Django', 'PostgreSQL'],
@@ -80,4 +82,14 @@ export class ProjectsComponent {
 }
 
   ]
+
+  selectedImage: string | null = null;
+
+  openImage(imageUrl: string) {
+    this.selectedImage = imageUrl;
+  }
+
+  closeImage() {
+    this.selectedImage = null;
+  }
 }
