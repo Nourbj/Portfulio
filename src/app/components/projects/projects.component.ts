@@ -8,13 +8,31 @@ import { Component } from '@angular/core';
 export class ProjectsComponent {
   projects: any[] = [
     {
-    title: 'Optimization and decoupling of client accounts',
-    logo: 'assets/images/decade.png',
-    description:
-      'Optimization and decoupling of client accounts from Magento to a frontend interface in Next.js, with secure authentication via AWS Identity Services. Architecture based on GraphQL and API Gateway.',
-    tech: ['Next.js', 'Magento', 'AWS', 'GraphQL', 'API Gateway'],
-  },
-  {
+      title: 'Sportif TN',
+      screenshots: 'assets/images/sportif.png',
+      description:
+        'A modern MERN-stack platform for Tunisian sports news. Features include real-time match results, detailed articles, athlete profiles, and a robust admin dashboard. Integrates JWT auth, Multer/Vercel Blob for media, ApexCharts for data viz, and Docker for containerization.',
+      tech: ['MongoDB', 'Express', 'React', 'Node.js', 'JWT', 'Multer', 'Vercel Blob', 'ApexCharts', 'Swagger', 'Docker'],
+      liveDemo: 'https://sportify-tn.vercel.app/login'
+    },
+    {
+      title: 'Landing Page Example',
+      screenshots: 'assets/images/landing page.png',
+      description: 'A modern, high-performance landing page built with React and Vite, showcasing responsive design and optimized user experience.',
+      tech: ['React', 'Vite', 'Tailwind CSS', 'Framer Motion'],
+      github: 'https://github.com/Nourbj/Landing-page-react-vite',
+      liveDemo: 'https://landing-page-coral-nine-81.vercel.app/'
+    },
+    {
+      title: 'Small Business Mobile App',
+      screenshots: 'assets/images/bezbez.png',
+      description:
+        'A cross-platform app for managing sales, clients, and products, designed for small businesses.',
+      tech: ['Ionic', 'Django', 'PostgreSQL'],
+      github: 'https://github.com/Nourbj/Small-business-mobile-app',
+     
+    },
+    {
     title: 'Employee Management System',
     screenshots: 'assets/images/employee.png',
     logo: 'assets/images/riseup.png', 
@@ -22,6 +40,22 @@ export class ProjectsComponent {
       'A cross-platform mobile app (iOS & Android) and web dashboard for managing employees, absences, and check requests, built with .NET MAUI and ASP.NET Core.',
     tech: ['.NET MAUI', 'ASP.NET Core', 'SQL Server'],
   },
+   {title: 'Project Management Web App',
+    screenshots: 'assets/images/tinyTasker.png',
+
+      description:
+     'Development of a web application to manage projects and their tasks, track the status of each task, and send emails using NodeMailer.',
+      tech: ['Angular', 'Node.js', 'Express.js', 'MongoDB', 'NodeMailer'],
+      github: 'https://github.com/Nourbj/Project-management-web-app',
+      },
+    {
+    title: 'Optimization and decoupling of client accounts',
+    logo: 'assets/images/decade.png',
+    description:
+      'Optimization and decoupling of client accounts from Magento to a frontend interface in Next.js, with secure authentication via AWS Identity Services. Architecture based on GraphQL and API Gateway.',
+    tech: ['Next.js', 'Magento', 'AWS', 'GraphQL', 'API Gateway'],
+  },
+  
   {
     title: 'Call Center ERP Development',
     logo: 'assets/images/maher.png',
@@ -37,6 +71,8 @@ export class ProjectsComponent {
       github: 'https://github.com/Nourbj/Library-project',
       liveDemo: ''
     },
+    
+    
      {
       title: 'HR Analytics Dashboard',
        description: 'Designed and developed a web-based dashboard to analyze key HR indicators by integrating data from a Human Resource Information System (HRIS).',
@@ -44,21 +80,7 @@ export class ProjectsComponent {
       tech: ['React', 'Node.js', 'PostgreSQL'],
       liveDemo: ''
     },
-    {
-      title: 'Small Business Mobile App',
-      screenshots: 'assets/images/bezbez.png',
-      description:
-        'A cross-platform app for managing sales, clients, and products, designed for small businesses.',
-      tech: ['Ionic', 'Django', 'PostgreSQL'],
-      github: 'https://github.com/Nourbj/Small-business-mobile-app',
-     
-    },
-    {title: 'Project Management Web App',
-      description:
-     'Development of a web application to manage projects and their tasks, track the status of each task, and send emails using NodeMailer.',
-      tech: ['Angular', 'Node.js', 'Express.js', 'MongoDB', 'NodeMailer'],
-      github: 'https://github.com/Nourbj/Project-management-web-app',
-      },
+
       {
   title: 'E-Commerce Website ',
   description:
@@ -79,8 +101,7 @@ export class ProjectsComponent {
     'Development of the same e-commerce website using Next.js for server-side rendering and SEO optimization, while managing the full purchase workflow: catalog, cart, payment, and checkout.',
   tech: ['Next.js', 'REST APIs'],
   github: 'https://github.com/Nourbj/E-commerce-website-with-Nextjs',     
-}
-
+    }
   ]
 
   selectedImage: string | null = null;

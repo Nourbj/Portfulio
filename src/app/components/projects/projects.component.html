@@ -12,47 +12,65 @@
 
     <div class="projects-grid">
       <div class="project-card" *ngFor="let project of projects">
-        <div class="project-screenshots" *ngIf="project.screenshots" (click)="openImage(project.screenshots)">
-          <div class="overlay"><i class="fas fa-expand"></i></div>
-          <img [src]="project.screenshots" [alt]="project.title + ' screenshots'" />
-        </div>
-        <div class="card-content">
-          <h3 class="project-title">
+        <!-- Media Area -->
+        <div class="project-media" [class.no-screenshot]="!project.screenshots" (click)="project.screenshots ? openImage(project.screenshots) : null">
+          <div class="overlay" *ngIf="project.screenshots">
+            <i class="fas fa-expand"></i>
+          </div>
+          <img *ngIf="project.screenshots" [src]="project.screenshots" [alt]="project.title + ' screenshots'" />
+          <div class="placeholder-graphic" *ngIf="!project.screenshots">
             <img
               *ngIf="project.logo"
               [src]="project.logo"
               [alt]="project.title + ' logo'"
-              class="project-logo"
+              class="placeholder-logo"
             />
-            {{ project.title }}
-          </h3>
+          </div>
+        </div>
 
-          <p>{{ project.description }}</p>
+        <div class="card-content">
+          <div class="title-area">
+            <h3 class="project-title">
+              <img
+                *ngIf="project.logo"
+                [src]="project.logo"
+                [alt]="project.title + ' logo'"
+                class="project-logo"
+              />
+              {{ project.title }}
+            </h3>
+          </div>
 
-          <ul class="tech-list">
-            <li *ngFor="let t of project.tech">{{ t }}</li>
-          </ul>
+          <div class="description-area">
+            <p>{{ project.description }}</p>
+          </div>
 
-          <div class="card-links">
-            <a
-              *ngIf="project.github"
-              [href]="project.github"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="GitHub"
-            >
-              <i class="fab fa-github"></i>
-            </a>
+          <div class="footer-area">
+            <ul class="tech-list">
+              <li *ngFor="let t of project.tech">{{ t }}</li>
+            </ul>
 
-            <a
-              *ngIf="project.liveDemo"
-              [href]="project.liveDemo"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Live Demo"
-            >
-              <i class="fas fa-external-link-alt"></i>
-            </a>
+            <div class="card-links">
+              <a
+                *ngIf="project.github"
+                [href]="project.github"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="GitHub"
+              >
+                <i class="fab fa-github"></i>
+              </a>
+
+              <a
+                *ngIf="project.liveDemo"
+                [href]="project.liveDemo"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Live Demo"
+              >
+                <i class="fas fa-external-link-alt"></i>
+              </a>
+            </div>
           </div>
         </div>
       </div>
